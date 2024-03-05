@@ -1,27 +1,9 @@
-import { Tabs } from "expo-router";
+import { Stack } from "expo-router";
 
-import { FontAwesome, Ionicons } from "@expo/vector-icons";
-
-const Root = () => {
+export default function _layout() {
   return (
-    <>
-      <Tabs screenOptions={{headerStatusBarHeight: 10}}>
-        <Tabs.Screen name="(tabs)/index" options={{
-          tabBarIcon: () => <FontAwesome name="home" size={24} />,
-          title: "Home",
-          headerShown: false
-        }} />
-        <Tabs.Screen name="(tabs)/Security" options={{
-          tabBarIcon: () => <FontAwesome name="lock" size={24} />,
-          title: "Security",
-        }} />
-        <Tabs.Screen name="(tabs)/Settings" options={{
-          tabBarIcon: () => <Ionicons name="settings" size={24} />,
-          title: "Settings",
-        }} />
-      </Tabs>
-    </>
+    <Stack screenOptions={{statusBarColor: "#fff", statusBarStyle: "dark"}}>
+      <Stack.Screen name="(tabs)" options={{headerShown: false}} />
+    </Stack>
   );
-};
-
-export default Root;
+}

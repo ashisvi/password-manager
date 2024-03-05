@@ -4,10 +4,10 @@ import { FontAwesome } from "@expo/vector-icons";
 export default function SearchBar() {
   return (
     <View style={styles.container}>
-      <TextInput style={styles.input} placeholder="Search" />
       <View>
         <FontAwesome name="search" size={20} />
       </View>
+      <TextInput style={styles.input} placeholder="Search" />
     </View>
   );
 }
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
     margin: 10,
     borderRadius: 15,
     backgroundColor: "#f9f6f9",
@@ -29,5 +29,6 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     fontWeight: "700",
+    marginLeft: 10
   },
 });
