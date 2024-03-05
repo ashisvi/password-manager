@@ -1,13 +1,11 @@
-import { Text, View, StyleSheet } from "react-native";
-import { useRouter } from "expo-router";
+import { View, StyleSheet } from "react-native";
 
-import SearchBar from "@/components/SearchBar";
+import { SearchBar, Header } from "@/components";
 
 const Home = () => {
-  const router = useRouter();
-
   return (
     <View style={styles.container}>
+      <Header />
       <SearchBar />
     </View>
   );
