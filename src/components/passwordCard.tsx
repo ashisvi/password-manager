@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from "react-native";
 
-export default function AddBtn() {
+export default function passwordCard() {
   return (
     <View>
-      <Text>AddBtn</Text>
+      <Text>passwordCard</Text>
     </View>
   );
 }

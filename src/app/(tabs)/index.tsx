@@ -10,7 +10,7 @@ const Home = () => {
     <View style={styles.container}>
       <Header />
       <SearchBar />
-      <TouchableOpacity onPress={() => router.push("/Form")}>
+      <TouchableOpacity onPress={() => router.navigate("/AddForm")}>
         <Text>Add password</Text>
       </TouchableOpacity>
     </View>

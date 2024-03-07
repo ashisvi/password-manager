@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from "react-native";
 
 export default function Header() {
   return (
@@ -8,7 +8,7 @@ export default function Header() {
         <Text style={styles.profileText}>A</Text>
       </View>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -18,12 +18,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 10
+    marginBottom: 10,
   },
   heading: {
     fontSize: 24,
     fontWeight: "900",
-    color: "gray"
+    color: "gray",
   },
   profile: {
     height: 40,
@@ -32,11 +32,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "green",
-    borderRadius: 50
+    borderRadius: 50,
   },
   profileText: {
     fontSize: 15,
     fontWeight: "700",
-    color: "#ffffff"
-  }
-})
+    color: "#ffffff",
+  },
+});
