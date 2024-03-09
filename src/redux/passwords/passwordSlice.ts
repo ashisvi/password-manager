@@ -3,10 +3,11 @@ interface Password {
   website: string;
   username: string;
   password: string;
-  createdAt: number;
-  updatedAt: number;
+  createdAt?: number;
+  updatedAt?: number;
 }
 
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface PasswordState {
@@ -14,16 +15,7 @@ interface PasswordState {
 }
 
 const initialState: PasswordState = {
-  passwords: [
-    {
-      id: "sldfr324729834ujflks",
-      website: "twitter",
-      username: "ashisvi",
-      password: "kuchhbhi",
-      createdAt: 1712075518933,
-      updatedAt: 1712075518933,
-    },
-  ],
+  passwords: [],
 };
 
 const passwordSlice = createSlice({
