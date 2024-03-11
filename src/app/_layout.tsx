@@ -1,15 +1,10 @@
-import { Stack } from "expo-router";
-import { Provider } from "react-redux";
+import { Stack } from "expo-router"
+import { darkTheme } from "@/theme"
 
-import store from "../redux/store";
-
-export default function _layout() {
+function RootLayout() {
   return (
-    <Provider store={store}>
-      <Stack screenOptions={{ statusBarColor: "#fff", statusBarStyle: "dark" }}>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="AddForm/index" options={{title: "Add password"}} />
-      </Stack>
-    </Provider>
-  );
+    <Stack screenOptions={{headerShown: false, statusBarColor: darkTheme.backgroundColor}} />
+  )
 }
+
+export default RootLayout
