@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export async function savePasswordToAsyncStorage(passwords: Password) {
+export async function savePasswordToAsyncStorage(passwords: Password[]) {
   try {
     const jsonValue = JSON.stringify(passwords);
     await AsyncStorage.setItem("passwords", jsonValue);

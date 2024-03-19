@@ -1,11 +1,29 @@
 import { FlatList, StyleSheet, Text, View } from "react-native"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 import SearchInput from "@/components/SearchInput"
 import { darkTheme } from "@/theme"
 import { RootState } from "@/redux/store"
+import { loadPasswordToAsyncStorage } from "@/utils/storage"
+import { loadPasswords } from "@/redux/passwords/passwordSlice"
+import { useEffect } from "react"
 
 export default function index() {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    const loadInitialPasswords = async () => {
+      try {
+        const savedPasswords = await loadPasswordToAsyncStorage()
+        dispatch(loadPasswords(savedPasswords))
+      } catch (error) {
+        console.error("Something went wrong while loading passwords", error)
+      }
+    }
+
+    loadInitialPasswords()
+  }, [])
+
   const passwords = useSelector((state: RootState) => state.passwords.passwords)
   console.log(passwords)
 
@@ -38,6 +56,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   list: {
-    flex: 1
-  }
+    flex: 1,
+  },
 })
