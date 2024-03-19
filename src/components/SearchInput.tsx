@@ -1,17 +1,29 @@
-import { StyleSheet, TouchableOpacity, TextInput, View } from 'react-native'
-import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
-import { darkTheme } from '@/theme'
+import { StyleSheet, TouchableOpacity, TextInput, View } from "react-native"
+import { Ionicons, FontAwesome5 } from "@expo/vector-icons"
+import { darkTheme } from "@/theme"
+import { Link } from "expo-router"
 
 export default function SearchInput() {
   return (
     <View style={styles.container}>
       <View style={styles.inputBox}>
-        <Ionicons style={styles.icon} name="search" size={24} color={darkTheme.textColor} />
-        <TextInput style={styles.input} placeholder='Search passwords' placeholderTextColor={darkTheme.borderColor} />
+        <Ionicons
+          style={styles.icon}
+          name="search"
+          size={24}
+          color={darkTheme.textColor}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Search passwords"
+          placeholderTextColor={darkTheme.borderColor}
+        />
       </View>
       <View style={styles.btnContainer}>
         <TouchableOpacity style={styles.btn}>
-          <FontAwesome5 name="plus" size={24} color={darkTheme.textColor} />
+          <Link href="/addForm">
+            <FontAwesome5 name="plus" size={24} color={darkTheme.textColor} />
+          </Link>
         </TouchableOpacity>
       </View>
     </View>
@@ -33,17 +45,17 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    padding: 10
+    padding: 10,
   },
   input: {
     flex: 1,
     fontSize: 15,
     color: darkTheme.textColor,
     paddingHorizontal: 10,
-    paddingVertical: 5
+    paddingVertical: 5,
   },
   icon: {
-    padding: 5
+    padding: 5,
   },
   btn: {
     display: "flex",
@@ -56,6 +68,6 @@ const styles = StyleSheet.create({
     borderLeftWidth: 1,
     borderColor: darkTheme.borderColor,
     height: 58,
-    width: 58
-  }
+    width: 58,
+  },
 })

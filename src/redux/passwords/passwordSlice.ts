@@ -1,14 +1,5 @@
-interface Password {
-  id: string;
-  website: string;
-  username: string;
-  password: string;
-  createdAt?: number;
-  updatedAt?: number;
-}
-
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { savePasswordToAsyncStorage, loadPasswordToAsyncStorage } from "@/utils/storage";
 
 interface PasswordState {
   passwords: Password[];
