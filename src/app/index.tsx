@@ -1,12 +1,14 @@
 import { FlatList, StyleSheet, Text, View } from "react-native"
 import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from "react"
 
-import SearchInput from "@/components/SearchInput"
 import { darkTheme } from "@/theme"
 import { RootState } from "@/redux/store"
 import { loadPasswordToAsyncStorage } from "@/utils/storage"
 import { loadPasswords } from "@/redux/passwords/passwordSlice"
-import { useEffect } from "react"
+import SearchInput from "@/components/SearchInput"
+import PasswordCard from "@/components/PasswordCard"
+import Header from "@/components/Header"
 
 export default function index() {
   const dispatch = useDispatch()
@@ -29,12 +31,13 @@ export default function index() {
 
   return (
     <View style={styles.container}>
+        <Header />
       <View style={styles.main}>
         <SearchInput />
         <View style={styles.list}>
           <FlatList
             data={passwords}
-            renderItem={({ item }) => <Text>{item.site}</Text>}
+            renderItem={({ item }) => <PasswordCard item={item} />}
             keyExtractor={(item) => item.id}
           />
         </View>
