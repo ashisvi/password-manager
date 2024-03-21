@@ -14,7 +14,7 @@ import { useNavigation } from "expo-router"
 
 export default function addForm() {
   const dispatch = useDispatch()
-  const navigation = useNavigation();
+  const navigation = useNavigation()
 
   const [form, setForm] = useState({
     site: "",
@@ -30,10 +30,16 @@ export default function addForm() {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity style={[styles.btn, disabled ? styles.disabledBtn : null]} onPress={handleSubmit} disabled={disabled} >
-          <Text style={disabled ? styles.disabledBtnText : styles.btnText}>Save</Text>
+        <TouchableOpacity
+          style={[styles.btn, disabled ? styles.disabledBtn : null]}
+          onPress={handleSubmit}
+          disabled={disabled}
+        >
+          <Text style={disabled ? styles.disabledBtnText : styles.btnText}>
+            Save
+          </Text>
         </TouchableOpacity>
-    )
+      ),
     })
   }, [navigation, form])
 
@@ -56,7 +62,9 @@ export default function addForm() {
           }}
         />
       </View>
-      <Text style={styles.warning}>Make sure that you're saving the correct password</Text>
+      <Text style={styles.warning}>
+        Make sure that you're saving the correct password
+      </Text>
       <View style={styles.inputBox}>
         <TextInput
           placeholder="Username"
@@ -87,7 +95,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: darkTheme.backgroundColor,
     flex: 1,
-    padding: 10
+    padding: 10,
   },
   inputBox: {
     marginVertical: 20,
@@ -109,7 +117,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     borderBottomWidth: 2,
-    borderBottomColor: darkTheme.borderColor
+    borderBottomColor: darkTheme.borderColor,
   },
   warning: {
     color: darkTheme.borderColor,
@@ -123,12 +131,12 @@ const styles = StyleSheet.create({
     borderColor: darkTheme.textColor,
   },
   btnText: {
-    color: darkTheme.textColor
+    color: darkTheme.textColor,
   },
   disabledBtn: {
     borderColor: darkTheme.borderColor,
   },
   disabledBtnText: {
-    color: darkTheme.borderColor
-  }
+    color: darkTheme.borderColor,
+  },
 })

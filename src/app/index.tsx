@@ -8,7 +8,6 @@ import { loadPasswordToAsyncStorage } from "@/utils/storage"
 import { loadPasswords } from "@/redux/passwords/passwordSlice"
 import SearchInput from "@/components/SearchInput"
 import PasswordCard from "@/components/PasswordCard"
-import Header from "@/components/Header"
 
 export default function index() {
   const dispatch = useDispatch()
@@ -27,11 +26,9 @@ export default function index() {
   }, [])
 
   const passwords = useSelector((state: RootState) => state.passwords.passwords)
-  console.log(passwords)
 
   return (
     <View style={styles.container}>
-        <Header />
       <View style={styles.main}>
         <SearchInput />
         <View style={styles.list}>

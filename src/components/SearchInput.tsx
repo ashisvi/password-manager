@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    fontSize: 15,
+    fontSize: 17,
     color: darkTheme.textColor,
     paddingHorizontal: 10,
     paddingVertical: 5,
