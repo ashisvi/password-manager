@@ -30,6 +30,7 @@ function RootLayout() {
           }}
         />
         <Stack.Screen name="addForm" options={{ title: "Add Password" }} />
+        <Stack.Screen name="sitePage/[site]" options={{title: "passwords"}} />
       </Stack>
     </Provider>
   )

@@ -7,7 +7,7 @@ import { RootState } from "@/redux/store"
 import { loadPasswordToAsyncStorage } from "@/utils/storage"
 import { loadPasswords } from "@/redux/passwords/passwordSlice"
 import SearchInput from "@/components/SearchInput"
-import PasswordCard from "@/components/PasswordCard"
+import PasswordListItem from "@/components/PasswordListItem"
 
 export default function index() {
   const dispatch = useDispatch()
@@ -34,7 +34,7 @@ export default function index() {
         <View style={styles.list}>
           <FlatList
             data={passwords}
-            renderItem={({ item }) => <PasswordCard item={item} />}
+            renderItem={({ item }) => <PasswordListItem item={item} />}
             keyExtractor={(item) => item.id}
           />
         </View>

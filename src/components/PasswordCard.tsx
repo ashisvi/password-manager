@@ -1,37 +1,24 @@
-import { StyleSheet, Text, View } from "react-native"
-import { MaterialCommunityIcons } from "@expo/vector-icons"
-import { darkTheme } from "@/theme"
+import { darkTheme } from '@/theme'
+import { StyleSheet, Text, View } from 'react-native'
 
-type Props = {
-  item: Password
-}
-
-export default function PasswordCard({ item }: Props) {
+export default function PasswordCard() {
   return (
     <View style={styles.container}>
-      <MaterialCommunityIcons
-        name="web"
-        size={26}
-        color={darkTheme.textColor}
-      />
-      <Text style={styles.site}>{item.site}</Text>
+      
     </View>
   )
 }
-
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
-    flexDirection: "row",
-    gap: 10,
-    borderWidth: 1,
-    borderBottomColor: darkTheme.borderColor,
-    padding: 10,
+    backgroundColor: darkTheme.backgroundColor,
+    shadowColor: darkTheme.borderColor,
+    width: 100,
+    height: 100,
+    margin: 10,
+    borderWidth: 2,
+    borderColor: "#fff"
   },
-  icon: {},
-  site: {
-    flex: 1,
-    color: darkTheme.textColor,
-    fontSize: 20,
-  },
+  site: {},
+  username: {},
+  password: {},
 })
