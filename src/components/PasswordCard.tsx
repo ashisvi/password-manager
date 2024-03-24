@@ -1,22 +1,31 @@
-import { darkTheme } from '@/theme'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from "react-native"
+import { darkTheme } from "@/theme"
 
-export default function PasswordCard() {
+type PasswordCardProps = {
+  username: string
+  password: string
+}
+
+export default function PasswordCard({
+  username,
+  password,
+}: PasswordCardProps) {
   return (
     <View style={styles.container}>
-      
+      <Text style={{ color: darkTheme.textColor }}>Sample</Text>
     </View>
   )
 }
 const styles = StyleSheet.create({
   container: {
     backgroundColor: darkTheme.backgroundColor,
-    shadowColor: darkTheme.borderColor,
-    width: 100,
-    height: 100,
-    margin: 10,
-    borderWidth: 2,
-    borderColor: "#fff"
+    flex: 1,
+    maxHeight: 100,
+    margin: 15,
+    borderRadius: 10,
+    elevation: 10,
+    shadowColor: "#fff",
+    padding: 10,
   },
   site: {},
   username: {},

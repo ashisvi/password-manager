@@ -1,16 +1,11 @@
 import { useEffect, useState } from "react"
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native"
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { useDispatch } from "react-redux"
 import { nanoid } from "@reduxjs/toolkit"
 import { addPassword } from "@/redux/passwords/passwordSlice"
 import { darkTheme } from "@/theme"
 import { useNavigation } from "expo-router"
+import Input from "@/components/Input"
 
 export default function addForm() {
   const dispatch = useDispatch()
@@ -50,14 +45,12 @@ export default function addForm() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.inputBox}>
+      <View>
         <Text style={styles.label}>Site</Text>
-        <TextInput
+        <Input
           placeholder="Website"
-          placeholderTextColor={darkTheme.borderColor}
-          style={styles.input}
           value={form.site}
-          onChange={(e) => {
+          handleOnChange={(e) => {
             setForm({ ...form, site: e.nativeEvent.text })
           }}
         />
@@ -65,28 +58,20 @@ export default function addForm() {
       <Text style={styles.warning}>
         Make sure that you're saving the correct password
       </Text>
-      <View style={styles.inputBox}>
-        <TextInput
-          placeholder="Username"
-          placeholderTextColor={darkTheme.borderColor}
-          style={styles.input}
-          value={form.username}
-          onChange={(e) => {
-            setForm({ ...form, username: e.nativeEvent.text })
-          }}
-        />
-      </View>
-      <View style={styles.inputBox}>
-        <TextInput
-          placeholder="Password"
-          placeholderTextColor={darkTheme.borderColor}
-          style={styles.input}
-          value={form.password}
-          onChange={(e) => {
-            setForm({ ...form, password: e.nativeEvent.text })
-          }}
-        />
-      </View>
+      <Input
+        placeholder="Username"
+        value={form.username}
+        handleOnChange={(e) => {
+          setForm({ ...form, username: e.nativeEvent.text })
+        }}
+      />
+      <Input
+        placeholder="Password"
+        value={form.password}
+        handleOnChange={(e) => {
+          setForm({ ...form, password: e.nativeEvent.text })
+        }}
+      />
     </View>
   )
 }
@@ -97,27 +82,10 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
   },
-  inputBox: {
-    marginVertical: 20,
-  },
   label: {
     fontSize: 15,
-    margin: 10,
+    marginHorizontal: 10,
     color: darkTheme.textColor,
-  },
-  input: {
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    fontSize: 16,
-    fontWeight: "700",
-    paddingLeft: 15,
-    height: 50,
-    color: darkTheme.textColor,
-    backgroundColor: "#31363F",
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    borderBottomWidth: 2,
-    borderBottomColor: darkTheme.borderColor,
   },
   warning: {
     color: darkTheme.borderColor,

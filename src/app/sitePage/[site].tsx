@@ -16,8 +16,7 @@ export default function SitePage() {
 
   return (
     <View style={styles.container}>
-      <PasswordCard />
-      <Text style={{ color: "#fff" }}>{site}</Text>
+      <PasswordCard username="" password="" />
     </View>
   )
 }
