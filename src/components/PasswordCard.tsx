@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native"
-import { darkTheme } from "@/theme"
+import { darkTheme } from "@/utils/theme"
+import Input from "./Input"
 
 type PasswordCardProps = {
   username: string
@@ -12,7 +13,8 @@ export default function PasswordCard({
 }: PasswordCardProps) {
   return (
     <View style={styles.container}>
-      <Text style={{ color: darkTheme.textColor }}>Sample</Text>
+      <Input placeholder="Username" value={username} />
+      <Input placeholder="Password" value={password} isPasswordType={true} />
     </View>
   )
 }
@@ -20,7 +22,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: darkTheme.backgroundColor,
     flex: 1,
-    maxHeight: 100,
     margin: 15,
     borderRadius: 10,
     elevation: 10,

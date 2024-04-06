@@ -1,6 +1,6 @@
 import { StyleSheet, TouchableOpacity, TextInput, View } from "react-native"
 import { Ionicons, FontAwesome5 } from "@expo/vector-icons"
-import { darkTheme } from "@/theme"
+import { darkTheme } from "@/utils/theme"
 import { Link } from "expo-router"
 
 export default function SearchInput() {

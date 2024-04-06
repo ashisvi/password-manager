@@ -2,7 +2,7 @@ import { Stack } from "expo-router"
 import { Provider } from "react-redux"
 
 import store from "@/redux/store"
-import { darkTheme } from "@/theme"
+import { darkTheme } from "@/utils/theme"
 import LeftHeaderBtn from "@/components/LeftHeaderBtn"
 
 function RootLayout() {

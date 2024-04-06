@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { useDispatch } from "react-redux"
 import { nanoid } from "@reduxjs/toolkit"
 import { addPassword } from "@/redux/passwords/passwordSlice"
-import { darkTheme } from "@/theme"
+import { darkTheme } from "@/utils/theme"
 import { useNavigation } from "expo-router"
 import Input from "@/components/Input"
 
@@ -71,6 +71,7 @@ export default function addForm() {
         handleOnChange={(e) => {
           setForm({ ...form, password: e.nativeEvent.text })
         }}
+        isPasswordType={true}
       />
     </View>
   )

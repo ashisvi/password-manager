@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native"
 import { MaterialCommunityIcons } from "@expo/vector-icons"
 import { Link } from "expo-router"
-import { darkTheme } from "@/theme"
+import { darkTheme } from "@/utils/theme"
 
 type Props = {
   item: Password

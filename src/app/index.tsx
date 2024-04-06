@@ -2,7 +2,7 @@ import { FlatList, StyleSheet, Text, View } from "react-native"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 
-import { darkTheme } from "@/theme"
+import { darkTheme } from "@/utils/theme"
 import { RootState } from "@/redux/store"
 import { loadPasswordToAsyncStorage } from "@/utils/storage"
 import { loadPasswords } from "@/redux/passwords/passwordSlice"

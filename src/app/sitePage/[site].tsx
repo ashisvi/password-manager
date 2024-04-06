@@ -1,8 +1,10 @@
 import { useLocalSearchParams, useNavigation } from "expo-router"
 import { useEffect } from "react"
-import { StyleSheet, Text, View } from "react-native"
+import { FlatList, StyleSheet, Text, View } from "react-native"
 import PasswordCard from "@/components/PasswordCard"
-import { darkTheme } from "@/theme"
+import { darkTheme } from "@/utils/theme"
+import { useSelector } from "react-redux"
+import { RootState } from "@/redux/store"
 
 export default function SitePage() {
   const { site } = useLocalSearchParams()
@@ -14,9 +16,17 @@ export default function SitePage() {
     })
   }, [navigation, site])
 
+  const passwords = useSelector(
+    (state: RootState) => state.passwords.passwords,
+  ).filter((item) => item.site === site)
+  console.log(passwords)
+
   return (
     <View style={styles.container}>
-      <PasswordCard username="" password="" />
+      <FlatList
+        data={passwords}
+        renderItem={({ item }) => <PasswordCard {...item} />}
+      />
     </View>
   )
 }
