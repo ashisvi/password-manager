@@ -1,30 +1,40 @@
 import { StyleSheet, Text, View } from "react-native"
+import { Link } from "expo-router"
 import { darkTheme } from "@/utils/theme"
 import Input from "./Input"
 import Button from "./Button"
 
-type PasswordCardProps = {
-  username: string
-  password: string
-}
-
-export default function PasswordCard({
-  username,
-  password,
-}: PasswordCardProps) {
+export default function PasswordCard({ username, password, id }: Password) {
   return (
     <View style={styles.container}>
       <View>
-        <Input placeholder="Username" value={username} isCopyBtn />
+        <Input
+          placeholder="Username"
+          value={username}
+          isCopyBtn
+          editable={false}
+          selectTextOnFocus={false}
+        />
         <Input
           placeholder="Password"
           value={password}
           isPasswordInput
           isCopyBtn
+          editable={false}
+          selectTextOnFocus={false}
         />
       </View>
       <View style={styles.btnBox}>
-        <Button>Edit</Button>
+        <Button>
+          <Link
+            href={{
+              pathname: "/edit/[id]",
+              params: { id: id },
+            }}
+          >
+            Edit
+          </Link>
+        </Button>
         <Button>Delete</Button>
       </View>
     </View>

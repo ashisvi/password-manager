@@ -2,24 +2,24 @@ import { darkTheme } from "@/utils/theme"
 import { StyleSheet, Text, TouchableOpacity } from "react-native"
 
 type Props = {
-  onPress?: () => void,
-  children: string,
+  onPressHandler?: () => void
+  children: string | JSX.Element
   style?: any
 }
 
-export default function Button({ onPress, children, style }: Props) {
+export default function Button({ onPressHandler, children, style }: Props) {
   return (
-    <TouchableOpacity style={styles.btn}>
+    <TouchableOpacity style={styles.btn} onPress={onPressHandler}>
       <Text style={styles.btnText}>{children}</Text>
     </TouchableOpacity>
   )
 }
 const styles = StyleSheet.create({
   btn: {
-    backgroundColor: "skyblue",
+    backgroundColor: darkTheme.buttonColor,
     paddingHorizontal: 15,
     paddingVertical: 7,
-    borderRadius: 15
+    borderRadius: 15,
   },
   btnText: {
     color: darkTheme.textColor,

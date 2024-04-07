@@ -6,9 +6,11 @@ import { useState } from "react"
 type Props = {
   placeholder: string
   value: string
-  isPasswordInput?: true | false,
-  isCopyBtn?: true | false,
+  isPasswordInput?: true | false
+  isCopyBtn?: true | false
   handleOnChange?: (e: any) => void
+  editable?: boolean
+  selectTextOnFocus?: boolean
 }
 
 export default function Input({
@@ -16,9 +18,13 @@ export default function Input({
   value,
   handleOnChange,
   isPasswordInput,
-  isCopyBtn
+  isCopyBtn,
+  selectTextOnFocus,
+  editable,
 }: Props) {
-  const [isPassword, setIsPassword] = useState<boolean>(isPasswordInput || false)
+  const [isPassword, setIsPassword] = useState<boolean>(
+    isPasswordInput || false,
+  )
 
   const togglePassword = () => {
     setIsPassword((prevState) => !prevState)
@@ -33,6 +39,8 @@ export default function Input({
         value={value}
         onChange={handleOnChange}
         secureTextEntry={isPassword}
+        selectTextOnFocus={selectTextOnFocus}
+        editable={editable}
       />
       <View style={styles.btnBox}>
         {isPasswordInput && (
@@ -44,9 +52,11 @@ export default function Input({
             />
           </TouchableOpacity>
         )}
-        {isCopyBtn && <TouchableOpacity style={styles.btn}>
-          <FontAwesome6 name="copy" size={24} color={darkTheme.borderColor} />
-        </TouchableOpacity>}
+        {isCopyBtn && (
+          <TouchableOpacity style={styles.btn}>
+            <FontAwesome6 name="copy" size={24} color={darkTheme.borderColor} />
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   )
