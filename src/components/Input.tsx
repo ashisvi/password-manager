@@ -6,7 +6,8 @@ import { useState } from "react"
 type Props = {
   placeholder: string
   value: string
-  isPasswordType?: true | false
+  isPasswordInput?: true | false,
+  isCopyBtn?: true | false,
   handleOnChange?: (e: any) => void
 }
 
@@ -14,9 +15,10 @@ export default function Input({
   placeholder,
   value,
   handleOnChange,
-  isPasswordType,
+  isPasswordInput,
+  isCopyBtn
 }: Props) {
-  const [isPassword, setIsPassword] = useState<boolean>(false)
+  const [isPassword, setIsPassword] = useState<boolean>(isPasswordInput || false)
 
   const togglePassword = () => {
     setIsPassword((prevState) => !prevState)
@@ -33,7 +35,7 @@ export default function Input({
         secureTextEntry={isPassword}
       />
       <View style={styles.btnBox}>
-        {isPasswordType && (
+        {isPasswordInput && (
           <TouchableOpacity onPress={togglePassword} style={styles.btn}>
             <FontAwesome6
               name={isPassword ? "eye" : "eye-slash"}
@@ -42,9 +44,9 @@ export default function Input({
             />
           </TouchableOpacity>
         )}
-        <TouchableOpacity style={styles.btn}>
+        {isCopyBtn && <TouchableOpacity style={styles.btn}>
           <FontAwesome6 name="copy" size={24} color={darkTheme.borderColor} />
-        </TouchableOpacity>
+        </TouchableOpacity>}
       </View>
     </View>
   )
@@ -56,13 +58,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#31363F",
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    borderBottomWidth: 2,
-    borderBottomColor: darkTheme.borderColor,
+    borderRadius: 10,
     paddingHorizontal: 15,
     paddingVertical: 5,
-    paddingRight: 5
+    paddingRight: 10,
   },
   input: {
     flex: 1,

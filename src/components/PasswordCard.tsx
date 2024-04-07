@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from "react-native"
 import { darkTheme } from "@/utils/theme"
 import Input from "./Input"
+import Button from "./Button"
 
 type PasswordCardProps = {
   username: string
@@ -13,8 +14,19 @@ export default function PasswordCard({
 }: PasswordCardProps) {
   return (
     <View style={styles.container}>
-      <Input placeholder="Username" value={username} />
-      <Input placeholder="Password" value={password} isPasswordType={true} />
+      <View>
+        <Input placeholder="Username" value={username} isCopyBtn />
+        <Input
+          placeholder="Password"
+          value={password}
+          isPasswordInput
+          isCopyBtn
+        />
+      </View>
+      <View style={styles.btnBox}>
+        <Button>Edit</Button>
+        <Button>Delete</Button>
+      </View>
     </View>
   )
 }
@@ -26,9 +38,19 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     elevation: 10,
     shadowColor: "#fff",
-    padding: 10,
+    padding: 15,
+    borderColor: darkTheme.borderColor,
+    borderWidth: 1,
   },
   site: {},
   username: {},
   password: {},
+  btnBox: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    gap: 10,
+    marginTop: 20,
+  },
 })

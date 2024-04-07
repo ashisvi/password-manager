@@ -71,7 +71,7 @@ export default function addForm() {
         handleOnChange={(e) => {
           setForm({ ...form, password: e.nativeEvent.text })
         }}
-        isPasswordType={true}
+        isPasswordInput={true}
       />
     </View>
   )
