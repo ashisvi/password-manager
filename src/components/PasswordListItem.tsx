@@ -4,19 +4,19 @@ import { Link } from "expo-router"
 import { darkTheme } from "@/utils/theme"
 
 type Props = {
-  item: Password
+  siteName: string
 }
 
-export default function PasswordListItem({ item }: Props) {
+export default function PasswordListItem({ siteName }: Props) {
   return (
-    <Link href={`/sitePage/${item.site}`} style={styles.link}>
+    <Link href={`/sitePage/${siteName}`} style={styles.link}>
       <View style={styles.container}>
         <MaterialCommunityIcons
           name="web"
           size={26}
           color={darkTheme.textColor}
         />
-        <Text style={styles.site}>{item.site}</Text>
+        <Text style={styles.site}>{siteName}</Text>
       </View>
     </Link>
   )

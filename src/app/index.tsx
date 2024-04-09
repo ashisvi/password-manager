@@ -25,7 +25,13 @@ export default function index() {
     loadInitialPasswords()
   }, [])
 
-  const passwords = useSelector((state: RootState) => state.passwords.passwords)
+  const passwords = useSelector(
+    (state: RootState) => state.passwords.passwords,
+  )
+  const sites = Array.from(new Set(passwords.map(password => password.site)))
+
+  console.clear()
+  console.log(sites)
 
   return (
     <View style={styles.container}>
@@ -33,9 +39,8 @@ export default function index() {
         <SearchInput />
         <View style={styles.list}>
           <FlatList
-            data={passwords}
-            renderItem={({ item }) => <PasswordListItem item={item} />}
-            keyExtractor={(item) => item.id}
+            data={sites}
+            renderItem={({ item }) => <PasswordListItem siteName={item} />}
           />
         </View>
       </View>
