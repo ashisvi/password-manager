@@ -1,10 +1,20 @@
-import { StyleSheet, Text, View } from "react-native"
-import { Link } from "expo-router"
+import { StyleSheet, View } from "react-native"
+import { useDispatch } from "react-redux"
+import { Link, useRouter } from "expo-router"
 import { darkTheme } from "@/utils/theme"
 import Input from "./Input"
 import Button from "./Button"
+import { deletePassword } from "@/redux/passwords/passwordSlice"
 
 export default function PasswordCard({ username, password, id }: Password) {
+  const dispatch = useDispatch()
+  const router = useRouter()
+
+  const handleDelete = () => {
+    dispatch(deletePassword(id))
+    router.navigate("/")
+  }
+
   return (
     <View style={styles.container}>
       <View>
@@ -35,7 +45,7 @@ export default function PasswordCard({ username, password, id }: Password) {
             Edit
           </Link>
         </Button>
-        <Button>Delete</Button>
+        <Button onPressHandler={handleDelete}>Delete</Button>
       </View>
     </View>
   )

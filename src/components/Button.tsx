@@ -2,7 +2,7 @@ import { darkTheme } from "@/utils/theme"
 import { StyleSheet, Text, TouchableOpacity } from "react-native"
 
 type Props = {
-  onPressHandler?: () => void
+  onPressHandler?: (...args: any) => void
   children: string | JSX.Element
   style?: any
 }

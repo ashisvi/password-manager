@@ -25,13 +25,8 @@ export default function index() {
     loadInitialPasswords()
   }, [])
 
-  const passwords = useSelector(
-    (state: RootState) => state.passwords.passwords,
-  )
-  const sites = Array.from(new Set(passwords.map(password => password.site)))
-
-  console.clear()
-  console.log(sites)
+  const passwords = useSelector((state: RootState) => state.passwords.passwords)
+  const sites = Array.from(new Set(passwords.map((password) => password.site)))
 
   return (
     <View style={styles.container}>

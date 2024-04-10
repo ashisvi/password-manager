@@ -19,7 +19,6 @@ export default function SitePage() {
   const passwords = useSelector(
     (state: RootState) => state.passwords.passwords,
   ).filter((item) => item.site === site)
-  console.log(passwords)
 
   return (
     <View style={styles.container}>
