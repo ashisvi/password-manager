@@ -1,4 +1,4 @@
-import { StyleSheet, View, TextInput, TouchableOpacity } from "react-native"
+import { StyleSheet, View, TextInput, Pressable } from "react-native"
 import { darkTheme } from "@/utils/theme"
 import { FontAwesome6 } from "@expo/vector-icons"
 import { useState } from "react"
@@ -44,18 +44,18 @@ export default function Input({
       />
       <View style={styles.btnBox}>
         {isPasswordInput && (
-          <TouchableOpacity onPress={togglePassword} style={styles.btn}>
+          <Pressable onPress={togglePassword} style={styles.btn}>
             <FontAwesome6
               name={isPassword ? "eye" : "eye-slash"}
               size={24}
               color={darkTheme.borderColor}
             />
-          </TouchableOpacity>
+          </Pressable>
         )}
         {isCopyBtn && (
-          <TouchableOpacity style={styles.btn}>
+          <Pressable style={styles.btn}>
             <FontAwesome6 name="copy" size={24} color={darkTheme.borderColor} />
-          </TouchableOpacity>
+          </Pressable>
         )}
       </View>
     </View>

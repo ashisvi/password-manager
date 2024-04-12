@@ -1,6 +1,6 @@
-import { FlatList, StyleSheet, Text, View } from "react-native"
+import { FlatList, StyleSheet, View } from "react-native"
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 import { darkTheme } from "@/utils/theme"
 import { RootState } from "@/redux/store"
@@ -10,6 +10,7 @@ import SearchInput from "@/components/SearchInput"
 import PasswordListItem from "@/components/PasswordListItem"
 
 export default function index() {
+  const [search, setSearch] = useState<string>("")
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -25,13 +26,18 @@ export default function index() {
     loadInitialPasswords()
   }, [])
 
-  const passwords = useSelector((state: RootState) => state.passwords.passwords)
+  const passwords = useSelector(
+    (state: RootState) => state.passwords.passwords,
+  ).filter(
+    (password) =>
+      password.site.includes(search) || password.username.includes(search),
+  )
   const sites = Array.from(new Set(passwords.map((password) => password.site)))
 
   return (
     <View style={styles.container}>
       <View style={styles.main}>
-        <SearchInput />
+        <SearchInput search={search} setSearch={setSearch} />
         <View style={styles.list}>
           <FlatList
             data={sites}

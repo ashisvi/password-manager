@@ -1,9 +1,14 @@
-import { StyleSheet, TouchableOpacity, TextInput, View } from "react-native"
+import { StyleSheet, Pressable, TextInput, View } from "react-native"
 import { Ionicons, FontAwesome5 } from "@expo/vector-icons"
 import { darkTheme } from "@/utils/theme"
 import { Link } from "expo-router"
 
-export default function SearchInput() {
+type Props = {
+  search: string
+  setSearch: any
+}
+
+export default function SearchInput({ search, setSearch }: Props) {
   return (
     <View style={styles.container}>
       <View style={styles.inputBox}>
@@ -17,14 +22,16 @@ export default function SearchInput() {
           style={styles.input}
           placeholder="Search passwords"
           placeholderTextColor={darkTheme.borderColor}
+          onChangeText={setSearch}
+          value={search}
         />
       </View>
       <View style={styles.btnContainer}>
-        <TouchableOpacity style={styles.btn}>
+        <Pressable style={styles.btn}>
           <Link href="/addForm">
             <FontAwesome5 name="plus" size={24} color={darkTheme.textColor} />
           </Link>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     </View>
   )
