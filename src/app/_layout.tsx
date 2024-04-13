@@ -3,7 +3,7 @@ import { Provider } from "react-redux"
 
 import store from "@/redux/store"
 import { darkTheme } from "@/utils/theme"
-import LeftHeaderBtn from "@/components/LeftHeaderBtn"
+import HeaderBtn from "@/components/HeaderBtn"
 
 function RootLayout() {
   return (
@@ -21,7 +21,7 @@ function RootLayout() {
           name="index"
           options={{
             title: "Password Manager",
-            headerRight: () => <LeftHeaderBtn />,
+            headerRight: () => <HeaderBtn iconName="settings-sharp" />,
             headerTitleStyle: {
               color: darkTheme.textColor,
               fontSize: 23,

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { StyleSheet, Text, Pressable, View } from "react-native"
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { useDispatch, useSelector } from "react-redux"
 import { updatePassword } from "@/redux/passwords/passwordSlice"
 import { darkTheme } from "@/utils/theme"
@@ -30,7 +30,7 @@ export default function addForm() {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <Pressable
+        <TouchableOpacity
           style={[styles.btn, disabled ? styles.disabledBtn : null]}
           onPress={handleSubmit}
           disabled={disabled}
@@ -38,7 +38,7 @@ export default function addForm() {
           <Text style={disabled ? styles.disabledBtnText : styles.btnText}>
             Save
           </Text>
-        </Pressable>
+        </TouchableOpacity>
       ),
     })
   }, [navigation, form])

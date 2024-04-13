@@ -1,5 +1,5 @@
 import { darkTheme } from "@/utils/theme"
-import { StyleSheet, Text, Pressable } from "react-native"
+import { StyleSheet, Text, TouchableOpacity } from "react-native"
 
 type Props = {
   onPressHandler?: (...args: any) => void
@@ -9,9 +9,9 @@ type Props = {
 
 export default function Button({ onPressHandler, children, style }: Props) {
   return (
-    <Pressable style={styles.btn} onPress={onPressHandler}>
+    <TouchableOpacity style={styles.btn} onPress={onPressHandler}>
       <Text style={styles.btnText}>{children}</Text>
-    </Pressable>
+    </TouchableOpacity>
   )
 }
 const styles = StyleSheet.create({

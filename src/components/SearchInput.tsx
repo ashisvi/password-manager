@@ -1,4 +1,4 @@
-import { StyleSheet, Pressable, TextInput, View } from "react-native"
+import { StyleSheet, TouchableOpacity, TextInput, View } from "react-native"
 import { Ionicons, FontAwesome5 } from "@expo/vector-icons"
 import { darkTheme } from "@/utils/theme"
 import { Link } from "expo-router"
@@ -27,11 +27,11 @@ export default function SearchInput({ search, setSearch }: Props) {
         />
       </View>
       <View style={styles.btnContainer}>
-        <Pressable style={styles.btn}>
+        <TouchableOpacity style={styles.btn}>
           <Link href="/addForm">
             <FontAwesome5 name="plus" size={24} color={darkTheme.textColor} />
           </Link>
-        </Pressable>
+        </TouchableOpacity>
       </View>
     </View>
   )

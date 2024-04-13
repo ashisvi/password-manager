@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, View } from "react-native"
+import { Dimensions, FlatList, StyleSheet, View } from "react-native"
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     margin: 10,
     borderWidth: 1,
     borderColor: darkTheme.borderColor,
+    minHeight: Dimensions.get("screen").height - 200,
     borderRadius: 10,
   },
   list: {
