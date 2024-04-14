@@ -1,13 +1,20 @@
-import { StyleSheet, View, TextInput, TouchableOpacity } from "react-native"
-import { darkTheme } from "@/utils/theme"
-import { FontAwesome6 } from "@expo/vector-icons"
+import {
+  StyleSheet,
+  View,
+  TextInput,
+  TouchableOpacity,
+  ToastAndroid,
+} from "react-native"
 import { useState } from "react"
+import * as Clipboard from "expo-clipboard"
+import { FontAwesome6 } from "@expo/vector-icons"
+import { darkTheme } from "@/utils/theme"
 
 type Props = {
   placeholder: string
   value: string
-  isPasswordInput?: true | false
-  isCopyBtn?: true | false
+  isPasswordInput?: boolean
+  isCopyBtn?: boolean
   handleOnChange?: (e: any) => void
   editable?: boolean
   selectTextOnFocus?: boolean
@@ -28,6 +35,14 @@ export default function Input({
 
   const togglePassword = () => {
     setIsPassword((prevState) => !prevState)
+  }
+
+  const copyToClipboard = async () => {
+    await Clipboard.setStringAsync(value)
+    ToastAndroid.show(
+      `${isPasswordInput ? "Password" : "Username"} copied succefully`,
+      ToastAndroid.SHORT,
+    )
   }
 
   return (
@@ -53,7 +68,7 @@ export default function Input({
           </TouchableOpacity>
         )}
         {isCopyBtn && (
-          <TouchableOpacity style={styles.btn}>
+          <TouchableOpacity style={styles.btn} onPress={copyToClipboard}>
             <FontAwesome6 name="copy" size={24} color={darkTheme.borderColor} />
           </TouchableOpacity>
         )}

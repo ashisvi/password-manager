@@ -30,7 +30,8 @@ export default function index() {
     (state: RootState) => state.passwords.passwords,
   ).filter(
     (password) =>
-      password.site.includes(search) || password.username.includes(search),
+      password.site.toLowerCase().includes(search.toLowerCase()) ||
+      password.username.toLowerCase().includes(search.toLowerCase()),
   )
   const sites = Array.from(new Set(passwords.map((password) => password.site)))
 
