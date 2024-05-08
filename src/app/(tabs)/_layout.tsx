@@ -3,11 +3,16 @@ import { Image, View, Text } from "react-native";
 import { icons } from "@/constants";
 import { HeaderRightBtn } from "@/components";
 
-const TabIcon = ({ name, icon, color, focused }: {
-  name: string,
-  icon: any,
-  color: string,
-  focused: boolean
+const TabIcon = ({
+  name,
+  icon,
+  color,
+  focused,
+}: {
+  name: string;
+  icon: any;
+  color: string;
+  focused: boolean;
 }) => {
   return (
     <View className="flex justify-center items-center">

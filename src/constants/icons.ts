@@ -19,5 +19,5 @@ export default {
   wallet,
   edit,
   dots,
-  shield
+  shield,
 };

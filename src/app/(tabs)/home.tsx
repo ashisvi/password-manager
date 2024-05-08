@@ -1,6 +1,6 @@
-import { View, Text } from "react-native"
-import { Card, FilterBtn, SearchInput } from "@/components"
-import { icons } from "@/constants"
+import { View, Text, ScrollView } from "react-native";
+import { Card, FilterBtn, PasswordCard, SearchInput } from "@/components";
+import { icons } from "@/constants";
 
 const Home = () => {
   return (
@@ -25,11 +25,36 @@ const Home = () => {
             <FilterBtn text="Favorites" isActive={false} />
             <FilterBtn text="Frequent" isActive={false} />
           </View>
-          {/* Passwords */}
+          <ScrollView className="">
+            <PasswordCard
+              id="123"
+              url="www.amazon.com"
+              website="Amazon"
+              username="ashisvi7519@gmail.com"
+            />
+            <PasswordCard
+              id="123"
+              url="www.instagram.com"
+              website="Instagram"
+              username="ashisvi7519@gmail.com"
+            />
+            <PasswordCard
+              id="123"
+              url="www.amazon.com"
+              website="Amazon"
+              username="ashisvi7519@gmail.com"
+            />
+            <PasswordCard
+              id="123"
+              url="www.instagram.com"
+              website="Instagram"
+              username="ashisvi7519@gmail.com"
+            />
+          </ScrollView>
         </View>
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

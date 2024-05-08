@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity } from "react-native"
+import { Text, TouchableOpacity } from "react-native";
 
 const FilterBtn = ({ text, isActive }: { text: string; isActive: boolean }) => {
   return (
@@ -15,7 +15,7 @@ const FilterBtn = ({ text, isActive }: { text: string; isActive: boolean }) => {
         {text}
       </Text>
     </TouchableOpacity>
-  )
-}
+  );
+};
 
-export default FilterBtn
+export default FilterBtn;
