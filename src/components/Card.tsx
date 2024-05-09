@@ -12,7 +12,7 @@ const Card = ({ icon, type, passwords }: Props) => {
       <View className="bg-primary/20 p-3 rounded-full">
         <Image
           source={icon}
-          className="h-7 w-7"
+          className="h-6 w-6"
           resizeMode="contain"
           tintColor="#9046CF"
         />

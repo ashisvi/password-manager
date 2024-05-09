@@ -3,7 +3,7 @@ import { icons } from "../constants";
 
 const SearchInput = () => {
   return (
-    <View className="w-full bg-grey/50 rounded-2xl py-3 px-5 flex-row items-center">
+    <View className="w-full bg-grey/40 rounded-xl py-2 px-3 flex-row items-center">
       <TextInput
         placeholder="Search"
         className="text-lg flex-1"

@@ -46,6 +46,10 @@ const TabsLayout = () => {
           borderTopColor: "#FEFEFE",
           height: 64,
         },
+        headerStyle: {
+          height: 100,
+        },
+        headerShadowVisible: false,
       }}
     >
       <Tabs.Screen
@@ -54,9 +58,7 @@ const TabsLayout = () => {
           title: "Home",
           headerStyle: {
             backgroundColor: "rgba(144, 70, 207, 0.2)",
-            height: 100,
           },
-          headerShadowVisible: false,
           headerTitle: () => (
             <View
               className="px-3 py-1 rounded-full"
@@ -85,6 +87,8 @@ const TabsLayout = () => {
         name="passwords"
         options={{
           title: "Home",
+          headerTitle: "Passwords",
+          headerRight: () => <HeaderRightBtn />,
           tabBarIcon: ({ color, focused }) => (
             <TabIcon
               icon={icons.shield}
@@ -99,6 +103,8 @@ const TabsLayout = () => {
         name="profile"
         options={{
           title: "Home",
+          headerTitle: "Profile",
+          headerRight: () => <HeaderRightBtn />,
           tabBarIcon: ({ color, focused }) => (
             <TabIcon
               icon={icons.user}
