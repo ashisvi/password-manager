@@ -1,8 +1,8 @@
-import { SplashScreen, Stack } from "expo-router"
-import { useFonts } from "expo-font"
-import { useEffect } from "react"
+import { SplashScreen, Stack } from "expo-router";
+import { useFonts } from "expo-font";
+import { useEffect } from "react";
 
-SplashScreen.preventAutoHideAsync()
+SplashScreen.preventAutoHideAsync();
 
 const RootLayout = () => {
   const [fontsLoaded, error] = useFonts({
@@ -15,15 +15,15 @@ const RootLayout = () => {
     "Monserrat-Regular": require("../../assets/fonts/Montserrat-Regular.ttf"),
     "Monserrat-SemiBold": require("../../assets/fonts/Montserrat-SemiBold.ttf"),
     "Monserrat-Thin": require("../../assets/fonts/Montserrat-Thin.ttf"),
-  })
+  });
 
   useEffect(() => {
-    if (error) throw error
+    if (error) throw error;
 
-    if (fontsLoaded) SplashScreen.hideAsync()
-  }, [fontsLoaded, error])
+    if (fontsLoaded) SplashScreen.hideAsync();
+  }, [fontsLoaded, error]);
 
-  if (!fontsLoaded) return null
+  if (!fontsLoaded) return null;
 
   return (
     <Stack
@@ -37,7 +37,7 @@ const RootLayout = () => {
       <Stack.Screen name="(auth)" />
       <Stack.Screen name="index" />
     </Stack>
-  )
-}
+  );
+};
 
-export default RootLayout
+export default RootLayout;
