@@ -5,7 +5,7 @@ const usePasswords = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const BASE_URL = "http://192.168.3.252:3000/api/passwords";
+  const BASE_URL = String(process.env.EXPO_PUBLIC_API_URL);
 
   const fetchPasswords = async () => {
     setLoading(true);
@@ -15,6 +15,7 @@ const usePasswords = () => {
       const data = await response.json();
       setPasswords(data);
     } catch (err) {
+      console.log(err);
       setError("Failed to fetch passwords");
     } finally {
       setLoading(false);
