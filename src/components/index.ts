@@ -1,17 +1,17 @@
-import HeaderRightBtn from "./HeaderRightBtn";
-import SearchInput from "./SearchInput";
-import Card from "./Card";
-import FilterBtn from "./FilterBtn";
-import PasswordCard from "./PasswordCard";
-import CustumInput from "./CustumInput";
-import PasswordsList from "./PasswordsList";
+import Card from "./Card"
+import CustomInput from "./CustomInput"
+import FilterBtn from "./FilterBtn"
+import HeaderRightBtn from "./HeaderRightBtn"
+import PasswordCard from "./PasswordCard"
+import PasswordsList from "./PasswordsList"
+import SearchInput from "./SearchInput"
 
 export {
-  HeaderRightBtn,
-  SearchInput,
   Card,
+  CustomInput,
   FilterBtn,
+  HeaderRightBtn,
   PasswordCard,
-  CustumInput,
   PasswordsList,
-};
+  SearchInput,
+}

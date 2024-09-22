@@ -6,7 +6,7 @@ const Profile = () => {
     <View>
       <Button
         title="Add password"
-        onPress={() => router.navigate("add-password")}
+        onPress={() => router.navigate("add-form")}
       />
       <Button title="Go back" onPress={() => router.navigate("/")} />
     </View>
