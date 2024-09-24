@@ -1,5 +1,5 @@
-import { router } from "expo-router";
-import { Button, Text, View } from "react-native";
+import { router } from "expo-router"
+import { Button, Text, View } from "react-native"
 
 export default function App() {
   return (
@@ -7,5 +7,5 @@ export default function App() {
       <Text className="text-white text-2xl font-bold">Hello world</Text>
       <Button title="Sign In" onPress={() => router.replace("sign-in")} />
     </View>
-  );
+  )
 }
