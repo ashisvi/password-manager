@@ -18,16 +18,12 @@ const CustomInput: React.FC<InputProps> = ({
   value,
   setValue,
 }) => {
-  const handleChange = (value: string) => {
-    setValue(value)
-  }
-
   return (
     <View className="bg-grey/50 w-full p-3 rounded-lg relative">
       <TextInput
         placeholder={placeholder}
         value={value}
-        onChangeText={handleChange}
+        onChangeText={setValue}
         className="text-lg"
         cursorColor="#18191F"
         secureTextEntry={password}

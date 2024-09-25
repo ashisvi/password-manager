@@ -1,11 +1,20 @@
-import { router } from "expo-router"
-import { Button, Text, View } from "react-native"
+import { Redirect } from "expo-router"
+import React from "react"
+import { Text } from "react-native"
+import { useAuth } from "./context/AuthContext"
 
-export default function App() {
-  return (
-    <View className="flex-1 justify-center items-center bg-secondary">
-      <Text className="text-white text-2xl font-bold">Hello world</Text>
-      <Button title="Sign In" onPress={() => router.replace("sign-in")} />
-    </View>
-  )
+const Page = () => {
+  const { authState, isLoading } = useAuth()
+
+  if (isLoading) {
+    return <Text>Loading...</Text>
+  }
+
+  if (authState?.authenticated) {
+    return <Redirect href="/home" />
+  }
+
+  return <Redirect href="/login" />
 }
+
+export default Page
