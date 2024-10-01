@@ -1,13 +1,13 @@
-import React from "react"
-import { TextInput, View } from "react-native"
+import React from "react";
+import { TextInput, View } from "react-native";
 
 interface InputProps {
-  placeholder?: string
-  icon?: any
-  type?: string
-  password?: boolean
-  value?: any
-  setValue?: any
+  placeholder?: string;
+  icon?: any;
+  type?: string;
+  password?: boolean;
+  value?: any;
+  setValue?: any;
 }
 
 const CustomInput: React.FC<InputProps> = ({
@@ -29,7 +29,7 @@ const CustomInput: React.FC<InputProps> = ({
         secureTextEntry={password}
       />
     </View>
-  )
-}
+  );
+};
 
-export default CustomInput
+export default CustomInput;

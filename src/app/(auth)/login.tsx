@@ -1,30 +1,30 @@
-import { CustomInput } from "@/components"
-import { Link } from "expo-router"
-import { useEffect, useState } from "react"
-import { Text, TouchableOpacity, View } from "react-native"
-import { useAuth } from "../context/AuthContext"
+import { CustomInput } from "@/components";
+import { Link } from "expo-router";
+import { useEffect, useState } from "react";
+import { Text, TouchableOpacity, View } from "react-native";
+import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [disabled, setDisabled] = useState(true)
-  const { onLogin } = useAuth()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [disabled, setDisabled] = useState(true);
+  const { onLogin } = useAuth();
 
   const handleLogin = async () => {
-    const result = await onLogin(email, password)
+    const result = await onLogin(email, password);
 
     if (result && result?.error) {
-      alert(result?.msg)
+      alert(result?.msg);
     }
-  }
+  };
 
   useEffect(() => {
     if (email && password) {
-      setDisabled(false)
+      setDisabled(false);
     } else {
-      setDisabled(true)
+      setDisabled(true);
     }
-  }, [email, password])
+  }, [email, password]);
 
   return (
     <View className="flex-1 justify-center items-center">
@@ -61,7 +61,7 @@ const Login = () => {
         </Text>
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

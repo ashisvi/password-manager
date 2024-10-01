@@ -1,7 +1,7 @@
-import { HeaderRightBtn } from "@/components"
-import { icons } from "@/constants"
-import { Tabs } from "expo-router"
-import { Image, Text, View } from "react-native"
+import { HeaderRightBtn } from "@/components";
+import { icons } from "@/constants";
+import { Tabs } from "expo-router";
+import { Image, Text, View } from "react-native";
 
 const TabIcon = ({
   name,
@@ -9,10 +9,10 @@ const TabIcon = ({
   color,
   focused,
 }: {
-  name: string
-  icon: any
-  color: string
-  focused: boolean
+  name: string;
+  icon: any;
+  color: string;
+  focused: boolean;
 }) => {
   return (
     <View className="flex justify-center items-center">
@@ -29,8 +29,8 @@ const TabIcon = ({
         {name}
       </Text>
     </View>
-  )
-}
+  );
+};
 
 const TabsLayout = () => {
   return (
@@ -116,6 +116,6 @@ const TabsLayout = () => {
         }}
       />
     </Tabs>
-  )
-}
-export default TabsLayout
+  );
+};
+export default TabsLayout;

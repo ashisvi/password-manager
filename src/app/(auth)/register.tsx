@@ -1,27 +1,27 @@
-import { CustomInput } from "@/components"
-import { Link } from "expo-router"
-import { useEffect, useState } from "react"
-import { Text, TouchableOpacity, View } from "react-native"
-import { useAuth } from "../context/AuthContext"
+import { CustomInput } from "@/components";
+import { Link } from "expo-router";
+import { useEffect, useState } from "react";
+import { Text, TouchableOpacity, View } from "react-native";
+import { useAuth } from "../context/AuthContext";
 
 const Register = () => {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [confirmPassword, setConfirmPassword] = useState("")
-  const [disabled, setDisabled] = useState(true)
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [disabled, setDisabled] = useState(true);
 
-  const { onRegister, onLogin } = useAuth()
+  const { onRegister, onLogin } = useAuth();
 
   const register = async () => {
-    const result = await onRegister(name, email, password)
+    const result = await onRegister(name, email, password);
 
     if (result?.error) {
-      alert(result?.msg)
+      alert(result?.msg);
     }
 
-    onLogin(email, password)
-  }
+    onLogin(email, password);
+  };
 
   useEffect(() => {
     if (
@@ -31,11 +31,11 @@ const Register = () => {
       confirmPassword &&
       password === confirmPassword
     ) {
-      setDisabled(false)
+      setDisabled(false);
     } else {
-      setDisabled(true)
+      setDisabled(true);
     }
-  }, [name, email, password, confirmPassword])
+  }, [name, email, password, confirmPassword]);
 
   return (
     <View className="flex-1 justify-center items-center">
@@ -88,7 +88,7 @@ const Register = () => {
         </Text>
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

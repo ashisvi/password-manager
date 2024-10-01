@@ -1,8 +1,8 @@
-import { icons } from "@/constants";
-import { View, Text, Image, TouchableOpacity } from "react-native";
 import { CustomInput } from "@/components";
+import { icons } from "@/constants";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
-export default function AddForm() {
+export default function AddPassword() {
   return (
     <View className="flex-1 justify-evenly items-center bg-white">
       <View className="flex items-center gap-4">
