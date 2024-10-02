@@ -1,18 +1,33 @@
-import { useState, useEffect } from "react";
+import { API_URL, useAuth } from "@/app/context/AuthContext";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const usePasswords = () => {
+  let headers = {};
   const [passwords, setPasswords] = useState<Password[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const BASE_URL = String(process.env.EXPO_PUBLIC_API_URL);
+  const { authState } = useAuth();
+
+  useEffect(() => {
+    if (authState?.token) {
+      headers = {
+        Authorization: `Bearer: ${authState?.token}`,
+      };
+    }
+  }, [authState, authState?.token]);
 
   const fetchPasswords = async () => {
     setLoading(true);
     setError(null);
+
     try {
-      const response = await fetch(BASE_URL);
-      const data = await response.json();
+      const response = await axios.get(`${API_URL}/passwords`, {
+        headers,
+      });
+
+      const data = await response.data;
       setPasswords(data);
     } catch (err) {
       console.log(err);
@@ -27,7 +42,7 @@ const usePasswords = () => {
     setError(null);
 
     try {
-      await fetch(BASE_URL, {
+      await fetch(API_URL as string, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -46,7 +61,7 @@ const usePasswords = () => {
     setLoading(true);
     setError(null);
     try {
-      await fetch(`${BASE_URL}/${updatedPassword.id}`, {
+      await fetch(`${API_URL as string}/${updatedPassword.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -66,7 +81,7 @@ const usePasswords = () => {
     setError(null);
 
     try {
-      await fetch(`${BASE_URL}/${id}`, {
+      await fetch(`${API_URL as string}/${id}`, {
         method: "DELETE",
       });
       fetchPasswords();
