@@ -5,6 +5,7 @@ import HeaderRightBtn from "./HeaderRightBtn";
 import PasswordCard from "./PasswordCard";
 import PasswordsList from "./PasswordsList";
 import SearchInput from "./SearchInput";
+export { default as Button } from "./Button";
 
 export {
   Card,

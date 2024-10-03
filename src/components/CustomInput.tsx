@@ -1,10 +1,8 @@
-import React from "react";
 import { TextInput, View } from "react-native";
 
 interface InputProps {
   placeholder?: string;
   icon?: any;
-  type?: string;
   password?: boolean;
   value?: any;
   setValue?: any;
@@ -13,13 +11,17 @@ interface InputProps {
 const CustomInput: React.FC<InputProps> = ({
   placeholder,
   icon,
-  type,
   password,
   value,
   setValue,
 }) => {
   return (
-    <View className="bg-grey/50 w-full p-3 rounded-lg relative">
+    <View
+      className={`bg-grey/50 w-full p-3 rounded-lg relative border-2`}
+      style={{
+        borderColor: "#9046cf",
+      }}
+    >
       <TextInput
         placeholder={placeholder}
         value={value}

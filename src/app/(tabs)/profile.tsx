@@ -9,6 +9,10 @@ const Profile = () => {
     <View>
       <Button title="Log Out" onPress={onLogout} />
       <Button title="Go back" onPress={() => router.navigate("/")} />
+      <Button
+        title="Add Password"
+        onPress={() => router.replace("add-password")}
+      />
     </View>
   );
 };

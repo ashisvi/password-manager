@@ -1,7 +1,7 @@
-import { CustomInput } from "@/components";
+import { Button, CustomInput } from "@/components";
 import { Link } from "expo-router";
 import { useEffect, useState } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Text, View } from "react-native";
 import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
@@ -10,7 +10,7 @@ const Login = () => {
   const [disabled, setDisabled] = useState(true);
   const { onLogin } = useAuth();
 
-  const handleLogin = async () => {
+  const login = async () => {
     const result = await onLogin(email, password);
 
     if (result && result?.error) {
@@ -31,12 +31,7 @@ const Login = () => {
       <View className="bg-grey/20 w-[90%] rounded-lg p-5 justify-between items-center">
         <Text className="text-primary text-2xl font-bold mb-5">Login</Text>
         <View className="w-full py-3">
-          <CustomInput
-            placeholder="Email"
-            type="email"
-            value={email}
-            setValue={setEmail}
-          />
+          <CustomInput placeholder="Email" value={email} setValue={setEmail} />
         </View>
         <View className="w-full py-3">
           <CustomInput
@@ -46,17 +41,11 @@ const Login = () => {
             password
           />
         </View>
-        <TouchableOpacity
-          className={`bg-primary/80 px-3 py-2 rounded-lg w-[150px] items-center justify-center mt-4 ${disabled && "bg-primary/50"}`}
-          onPress={handleLogin}
-          disabled={disabled}
-        >
-          <Text className="text-white font-semibold text-lg">Submit</Text>
-        </TouchableOpacity>
+        <Button handleOnPress={login} isDisabled={disabled} />
         <Text className="mt-3">
           Not registered?
-          <Link href="register" className="text-primary">
-            Register
+          <Link href="register" className="text-secondary">
+            <Text> Register</Text>
           </Link>
         </Text>
       </View>

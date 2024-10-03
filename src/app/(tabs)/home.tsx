@@ -1,6 +1,6 @@
-import { View, Text, ScrollView } from "react-native";
-import { Card, FilterBtn, SearchInput, PasswordsList } from "@/components";
+import { Card, FilterBtn, SearchInput } from "@/components";
 import { icons } from "@/constants";
+import { ScrollView, Text, View } from "react-native";
 
 const Home = () => {
   return (
@@ -11,7 +11,7 @@ const Home = () => {
           <Text className="text-lg text-textr/50 font-semibold">Manage</Text>
           <Text className="text-2xl font-bold">Your Passwords</Text>
         </View>
-        <View className="flex flex-row justify-between py-2 px-1">
+        <View className="flex flex-row justify-between items-center py-2">
           <Card icon={icons.people} type="Socials" passwords={10} />
           <Card icon={icons.menu} type="Apps" passwords={8} />
           <Card icon={icons.wallet} type="Wallets" passwords={6} />

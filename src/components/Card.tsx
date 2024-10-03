@@ -8,7 +8,7 @@ type Props = {
 
 const Card = ({ icon, type, passwords }: Props) => {
   return (
-    <View className="px-3 py-5 bg-white flex justify-center items-center max-w-[120px] rounded-xl">
+    <View className="px-3 py-5 bg-white flex justify-center items-center w-[31%] rounded-xl">
       <View className="bg-primary/20 p-3 rounded-full">
         <Image
           source={icon}

@@ -1,19 +1,23 @@
 import { CustomInput } from "@/components";
-import { icons } from "@/constants";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { View } from "react-native";
 
 export default function AddPassword() {
   return (
     <View className="flex-1 justify-evenly items-center bg-white">
-      <View className="flex items-center gap-4">
-        <View className="bg-grey/30 p-6 rounded-full">
-          <Image source={icons.user} tintColor="orange" className="h-24 w-24" />
+      <View className="flex-1 w-full px-3 py-5 bg-white">
+        <View className="mt-3">
+          <CustomInput placeholder="Website Ex. Amazon" />
         </View>
-        <TouchableOpacity>
-          <Text className="font-semibold text-blue-900">Change Icon</Text>
-        </TouchableOpacity>
+        <View className="mt-3">
+          <CustomInput placeholder="URL Ex. www.amazon.com" />
+        </View>
+        <View className="mt-3">
+          <CustomInput placeholder="Username or Email" />
+        </View>
+        <View className="mt-3">
+          <CustomInput placeholder="Password" password />
+        </View>
       </View>
-      <CustomInput />
     </View>
   );
 }

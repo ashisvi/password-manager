@@ -1,7 +1,7 @@
-import { CustomInput } from "@/components";
+import { Button, CustomInput } from "@/components";
 import { Link } from "expo-router";
 import { useEffect, useState } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Text, View } from "react-native";
 import { useAuth } from "../context/AuthContext";
 
 const Register = () => {
@@ -73,17 +73,11 @@ const Register = () => {
             setValue={setConfirmPassword}
           />
         </View>
-        <TouchableOpacity
-          className={`bg-primary/80 px-3 py-2 rounded-lg w-[150px] items-center justify-center mt-4 ${disabled && "bg-primary/50"}`}
-          onPress={register}
-          disabled={disabled}
-        >
-          <Text className="text-white font-semibold text-lg">Submit</Text>
-        </TouchableOpacity>
+        <Button handleOnPress={register} isDisabled={disabled} />
         <Text className="mt-3">
           Already registered?
-          <Link href="login" className="text-primary">
-            Login
+          <Link href="login" className="text-secondary">
+            <Text> Login</Text>
           </Link>
         </Text>
       </View>
