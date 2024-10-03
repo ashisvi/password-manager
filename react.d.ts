@@ -2,8 +2,12 @@
 
 interface Password {
   id?: string;
-  website: string;
-  username: string;
-  password: string;
-  url?: string;
+  userId?: string;
+  websiteName?: string;
+  websiteUrl?: string;
+  username?: string;
+  password?: string;
+  tag?: string;
+  createdAt?: string;
+  updatedAt?: string;
 }

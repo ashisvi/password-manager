@@ -17,7 +17,7 @@ const CustomInput: React.FC<InputProps> = ({
 }) => {
   return (
     <View
-      className={`bg-grey/50 w-full p-3 rounded-lg relative border-2`}
+      className={`bg-grey/40 w-full p-3 rounded-lg relative border`}
       style={{
         borderColor: "#9046cf",
       }}

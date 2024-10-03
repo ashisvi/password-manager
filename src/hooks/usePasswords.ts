@@ -41,15 +41,21 @@ const usePasswords = () => {
     setLoading(true);
     setError(null);
 
+    console.log(newPassword);
+
     try {
-      await fetch(API_URL as string, {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
+      const result = await axios.post(
+        `${API_URL}/passwords`,
+        {
+          ...newPassword,
         },
-        body: JSON.stringify(newPassword),
-      });
+        {
+          headers,
+        }
+      );
       fetchPasswords();
+
+      return result;
     } catch (err) {
       setError("Failed to add password");
     } finally {
