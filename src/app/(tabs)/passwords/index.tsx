@@ -1,5 +1,5 @@
-import { View, Text, ScrollView } from "react-native";
 import { PasswordsList, SearchInput } from "@/components";
+import { View } from "react-native";
 
 const Passwords = () => {
   return (

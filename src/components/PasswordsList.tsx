@@ -1,6 +1,6 @@
-import { View, Text, FlatList } from "react-native";
-import React from "react";
 import usePasswords from "@/hooks/usePasswords";
+import React from "react";
+import { FlatList, Text } from "react-native";
 import PasswordCard from "./PasswordCard";
 
 const PasswordsList = () => {
@@ -13,6 +13,7 @@ const PasswordsList = () => {
     <FlatList
       data={passwords?.passwords}
       renderItem={(password) => <PasswordCard password={password.item} />}
+      className="p-3"
     />
   );
 };

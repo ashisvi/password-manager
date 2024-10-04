@@ -88,6 +88,7 @@ const TabsLayout = () => {
         options={{
           title: "Home",
           headerTitle: "Passwords",
+          headerShown: false,
           headerRight: () => <HeaderRightBtn />,
           tabBarIcon: ({ color, focused }) => (
             <TabIcon

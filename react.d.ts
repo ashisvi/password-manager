@@ -1,7 +1,7 @@
 /// <reference types="nativewind/types" />
 
 interface Password {
-  id?: string;
+  _id?: string;
   userId?: string;
   websiteName?: string;
   websiteUrl?: string;
