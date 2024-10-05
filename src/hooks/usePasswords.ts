@@ -28,7 +28,7 @@ const usePasswords = () => {
       });
 
       const data = await response.data;
-      setPasswords(data);
+      setPasswords(data?.passwords);
     } catch (err) {
       console.log(err);
       setError("Failed to fetch passwords");
@@ -40,8 +40,6 @@ const usePasswords = () => {
   const addPassword = async (newPassword: Password) => {
     setLoading(true);
     setError(null);
-
-    console.log(newPassword);
 
     try {
       const result = await axios.post(
@@ -67,7 +65,7 @@ const usePasswords = () => {
     setLoading(true);
     setError(null);
     try {
-      await fetch(`${API_URL as string}/${updatedPassword.id}`, {
+      await fetch(`${API_URL as string}/${updatedPassword._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

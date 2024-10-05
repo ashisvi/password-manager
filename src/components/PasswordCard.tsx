@@ -7,7 +7,6 @@ type Props = {
 };
 
 const PasswordCard = ({ password }: Props) => {
-  console.log(password);
   return (
     <View className="w-full bg-white py-2 px-4 rounded-lg flex flex-row justify-between items-center mt-3 border border-primary">
       <Link href={`/passwords/${password._id}/password-page`}>

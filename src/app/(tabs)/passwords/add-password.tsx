@@ -2,7 +2,7 @@ import { Button, CustomInput } from "@/components";
 import usePasswords from "@/hooks/usePasswords";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
-import { View } from "react-native";
+import { Text, View } from "react-native";
 
 export default function AddPassword() {
   const { addPassword, error, loading } = usePasswords();
@@ -29,14 +29,17 @@ export default function AddPassword() {
         password,
       });
 
-      if (!loading && !error) {
-        router.replace("home");
+      if (result?.status === 201) {
+        return router.replace(`passwords/${result?.data._id}/password-page`);
       }
     }
   };
 
   return (
     <View className="flex-1 justify-evenly items-center bg-white">
+      {error && !loading && (
+        <Text className="text-red-600 p-3 border-red-600">{error}</Text>
+      )}
       <View className="flex-1 w-full px-3 py-5 bg-white">
         <View className="mt-5">
           <CustomInput
